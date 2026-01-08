@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MindFocus</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div id="view-home" class="view active">
+        <header>
+            <div class="header-content">
+                <div>
+                    <h1 class="app-title">MindFocus</h1>
+                    <p class="subtitle">Твое ментальное здоровье</p>
+                </div>
+                <div class="user-avatar" id="userAvatar"></div>
+            </div>
+            
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Найти эксперта...">
+            </div>
+
+            <div class="tags-row">
+                <div class="tag active" data-cat="all">Все</div>
+                <div class="tag" data-cat="psychology">Психологи</div>
+                <div class="tag" data-cat="business">Бизнес-коучи</div>
+                <div class="tag" data-cat="nutrition">Нутрициологи</div>
+            </div>
+        </header>
+
+        <div class="content-scroll" id="expertsList">
+            </div>
+    </div>
+
+    <div id="view-expert" class="view">
+        <div class="nav-back" onclick="switchView('view-home')">
+            <i class="fas fa-arrow-left"></i> Назад
+        </div>
+        <div id="expertDetailsContent">
+            </div>
+    </div>
+
+    <div id="view-profile" class="view">
+        <div class="profile-header">
+            <h2>Мои записи</h2>
+        </div>
+        <div class="content-scroll" id="myBookingsList">
+            <div class="empty-state">У вас пока нет записей</div>
+        </div>
+    </div>
+
+    <nav class="tab-bar">
+        <div class="tab-item active" onclick="switchView('view-home')">
+            <i class="fas fa-home"></i>
+            <span>Главная</span>
+        </div>
+        <div class="tab-item" onclick="switchView('view-profile')">
+            <i class="fas fa-calendar-check"></i>
+            <span>Мои записи</span>
+        </div>
+        <div class="tab-item">
+            <i class="fas fa-user"></i>
+            <span>Профиль</span>
+        </div>
+    </nav>
+
+    <div id="bookingSheet" class="bottom-sheet">
+        <div class="sheet-content">
+            <div class="drag-handle"></div>
+            <h3>Выберите время</h3>
+            <div class="calendar-strip" id="calendarStrip">
+                </div>
+            <div class="time-grid" id="timeGrid">
+                </div>
+            <button class="main-btn" id="confirmPaymentBtn">Оплатить и записаться</button>
+        </div>
+    </div>
+    <div id="overlay" class="overlay"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
